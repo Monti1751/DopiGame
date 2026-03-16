@@ -1,0 +1,31 @@
+{
+  "@@locale": "zh",
+  "appTitle": "DopiGame",
+  "@appTitle": {
+    "description": "应用程序的名称"
+  },
+  "welcomeMessage": "你好，冒险者！我们今天要做什么？",
+  "taskCompleted": "任务完成！",
+  "xpGained": "您获得了 {xp} 点经验值",
+  "@xpGained": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "levelUp": "您升到了第 {level} 级！",
+  "@levelUp": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryMedical": "医疗预约",
+  "categoryHabit": "日常习惯",
+  "categoryEvent": "特别活动",
+  "noTasks": "这里很安静……喝杯茶或添加一个任务吧。",
+  "statsLevel": "等级 {level}",
+  "statsProgress": "等级进度"
+}

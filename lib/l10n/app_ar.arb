@@ -1,0 +1,31 @@
+{
+  "@@locale": "ar",
+  "appTitle": "DopiGame",
+  "@appTitle": {
+    "description": "اسم التطبيق"
+  },
+  "welcomeMessage": "مرحباً أيها المغامر! ماذا سنفعل اليوم؟",
+  "taskCompleted": "تم إنجاز المهمة!",
+  "xpGained": "لقد ربحت {xp} نقاط خبرة",
+  "@xpGained": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "levelUp": "لقد وصلت إلى المستوى {level}!",
+  "@levelUp": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryMedical": "موعد طبي",
+  "categoryHabit": "عادة يومية",
+  "categoryEvent": "حدث خاص",
+  "noTasks": "الهدوء يعم المكان... تناول الشاي أو أضف مهمة.",
+  "statsLevel": "المستوى {level}",
+  "statsProgress": "التقدم في المستوى"
+}

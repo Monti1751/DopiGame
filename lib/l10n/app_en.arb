@@ -1,0 +1,73 @@
+{
+  "@@locale": "en",
+  "appTitle": "DopiGame",
+  "@appTitle": {
+    "description": "The name of the application"
+  },
+  "welcomeMessage": "Hello, adventurer! What shall we do today?",
+  "taskCompleted": "Task completed!",
+  "xpGained": "You have gained {xp} experience points",
+  "@xpGained": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "levelUp": "You leveled up to level {level}!",
+  "@levelUp": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryMedical": "Medical Appointment",
+  "categoryHabit": "Daily Habit",
+  "categoryEvent": "Special Event",
+  "noTasks": "It is quiet around here... Have some tea or add a task.",
+  "statsLevel": "Level {level}",
+  "statsProgress": "Level Progress",
+  "addTaskTitle": "Add New Task",
+  "taskNameLabel": "Task Name",
+  "taskNameHint": "e.g., Read 10 pages",
+  "taskDescriptionLabel": "Description (Optional)",
+  "taskDescriptionHint": "Add more details here...",
+  "categoryLabel": "Category",
+  "dueDateLabel": "Due Date",
+  "priorityLabel": "Priority",
+  "priorityNormal": "Normal (1x XP)",
+  "priorityHigh": "High (1.5x XP)",
+  "saveTaskButton": "Save Task",
+  "errorRequiredField": "This field is required",
+  "settingsTitle": "Settings",
+  "themeSection": "Visual Theme",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "themeColorblind": "Colorblind",
+  "fontSizeSection": "Font Size",
+  "languageSection": "Language",
+  "profileTitle": "Profile",
+  "changeAvatar": "Change Photo",
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "totalCompletedTasks": "Completed Tasks",
+  "totalXp": "Total XP",
+  "permissionDenied": "Permission denied. Please enable it in settings.",
+  "taskDetailsTitle": "Task Details",
+  "editTask": "Edit",
+  "deleteTask": "Delete",
+  "deleteConfirmationTitle": "Delete Task?",
+  "deleteConfirmationBody": "Are you sure you want to delete this task?",
+  "cancel": "Cancel",
+  "confirm": "Confirm",
+  "editTaskTitle": "Edit Task",
+  "updateTaskButton": "Update Task",
+  "categoryTask": "Task",
+  "taskCreatedToast": "Task created successfully!",
+  "taskUpdatedToast": "Task updated!",
+  "taskDeletedToast": "Task deleted!",
+  "usernameLabel": "Username",
+  "editName": "Edit Name",
+  "save": "Save"
+}

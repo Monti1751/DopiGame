@@ -1,0 +1,31 @@
+{
+  "@@locale": "ja",
+  "appTitle": "DopiGame",
+  "@appTitle": {
+    "description": "アプリケーションの名前"
+  },
+  "welcomeMessage": "こんにちは、冒険者！今日は何をしましょうか？",
+  "taskCompleted": "タスク完了！",
+  "xpGained": "{xp}経験値を獲得しました",
+  "@xpGained": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "levelUp": "レベル{level}に上がりました！",
+  "@levelUp": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryMedical": "医療予約",
+  "categoryHabit": "毎日の習慣",
+  "categoryEvent": "特別なイベント",
+  "noTasks": "ここは静かですね……お茶を飲むか、タスクを追加してください。",
+  "statsLevel": "レベル {level}",
+  "statsProgress": "レベル進行度"
+}

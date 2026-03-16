@@ -1,0 +1,31 @@
+{
+  "@@locale": "uk",
+  "appTitle": "DopiGame",
+  "@appTitle": {
+    "description": "Назва додатку"
+  },
+  "welcomeMessage": "Привіт, шукачу пригод! Що будемо робити сьогодні?",
+  "taskCompleted": "Завдання виконано!",
+  "xpGained": "Ви заробили {xp} очок досвіду",
+  "@xpGained": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "levelUp": "Ви досягли рівня {level}!",
+  "@levelUp": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryMedical": "Медичний запис",
+  "categoryHabit": "Щоденна звичка",
+  "categoryEvent": "Особлива подія",
+  "noTasks": "Тут тихо... Випийте чаю або додайте завдання.",
+  "statsLevel": "Рівень {level}",
+  "statsProgress": "Прогрес рівня"
+}

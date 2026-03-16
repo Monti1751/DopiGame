@@ -1,0 +1,31 @@
+{
+  "@@locale": "it",
+  "appTitle": "DopiGame",
+  "@appTitle": {
+    "description": "Il nome dell'applicazione"
+  },
+  "welcomeMessage": "Ciao, avventuriero! Cosa facciamo oggi?",
+  "taskCompleted": "Attività completata!",
+  "xpGained": "Hai guadagnato {xp} punti esperienza",
+  "@xpGained": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "levelUp": "Sei salito al livello {level}!",
+  "@levelUp": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "categoryMedical": "Appuntamento Medico",
+  "categoryHabit": "Abitudine Quotidiana",
+  "categoryEvent": "Evento Speciale",
+  "noTasks": "È tutto tranquillo qui... Prenditi un tè o aggiungi un'attività.",
+  "statsLevel": "Livello {level}",
+  "statsProgress": "Progresso del livello"
+}
