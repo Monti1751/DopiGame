@@ -15,15 +15,22 @@ class GamificationRepositoryImpl implements GamificationRepository {
 
   @override
   Future<void> markTaskAsCompleted(int taskId) async {
+    print("Repository: Marking task $taskId as completed");
     final db = await dbHelper.database;
-    await db.update(
+    final result = await db.update(
       'tasks',
       {'is_completed': 1},
       where: 'id = ?',
       whereArgs: [taskId],
     );
+    print("Repository: Update result: $result");
+    
     // Cancel notification when task is completed
-    await NotificationService().cancelNotification(taskId);
+    try {
+      await NotificationService().cancelNotification(taskId);
+    } catch (e) {
+      print("Repository: Non-fatal error cancelling notification: $e");
+    }
   }
 
 
@@ -188,9 +195,17 @@ class GamificationRepositoryImpl implements GamificationRepository {
     );
 
     if (task.isCompleted) {
-      await NotificationService().cancelNotification(task.id);
+      try {
+        await NotificationService().cancelNotification(task.id);
+      } catch (e) {
+        print("Repository: Non-fatal error cancelling notification: $e");
+      }
     } else {
-      _scheduleNotification(task.id, task.title, task.dueDate);
+      try {
+        _scheduleNotification(task.id, task.title, task.dueDate);
+      } catch (e) {
+        print("Repository: Non-fatal error scheduling notification: $e");
+      }
     }
   }
 

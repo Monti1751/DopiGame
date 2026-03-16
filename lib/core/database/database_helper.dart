@@ -19,18 +19,26 @@ class DatabaseHelper {
   Future<Database> _initDB(String filePath) async {
     // Use the web-compatible factory when running in the browser
     if (kIsWeb) {
+      print("DatabaseHelper: Initializing for Web");
       databaseFactory = databaseFactoryFfiWeb;
     }
 
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
+    print("DatabaseHelper: Database path: $path");
 
     return await openDatabase(
       path,
       version: AppConstants.dbVersion,
-      onCreate: _createDB,
+      onCreate: (db, version) {
+        print("DatabaseHelper: Creating new database version $version");
+        _createDB(db, version);
+      },
       onConfigure: _onConfigure,
-      onUpgrade: _onUpgrade,
+      onUpgrade: (db, oldV, newV) {
+        print("DatabaseHelper: Upgrading database from $oldV to $newV");
+        _onUpgrade(db, oldV, newV);
+      },
     );
   }
 

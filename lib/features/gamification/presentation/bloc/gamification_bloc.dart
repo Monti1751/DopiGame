@@ -171,8 +171,9 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
         categories: categories,
         hasReachedMax: tasks.length < 20,
       ));
-    } catch (_) {
-      // Handle error gracefully
+    } catch (e, stack) {
+      print("Error loading gamification data: $e");
+      print(stack);
     }
   }
 
@@ -198,7 +199,10 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
           showLevelUpAnimation: leveledUp,
           newLevel: leveledUp ? newStats.currentLevel : null,
         ));
-      } catch (_) {}
+      } catch (e, stack) {
+        print("Error completing task: $e");
+        print(stack);
+      }
     }
   }
 
@@ -231,8 +235,9 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
         final newTasks = await repository.getPendingTasks();
         
         emit(currentState.copyWith(pendingTasks: newTasks));
-      } catch (_) {
-        // Handle error gracefully
+      } catch (e, stack) {
+        print("Error adding task: $e");
+        print(stack);
       }
     }
   }
@@ -247,7 +252,10 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
         await repository.updateTask(event.task);
         final newTasks = await repository.getPendingTasks();
         emit(currentState.copyWith(pendingTasks: newTasks));
-      } catch (_) {}
+      } catch (e, stack) {
+        print("Error updating task: $e");
+        print(stack);
+      }
     }
   }
 
@@ -261,7 +269,10 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
         await repository.deleteTask(event.taskId);
         final newTasks = await repository.getPendingTasks();
         emit(currentState.copyWith(pendingTasks: newTasks));
-      } catch (_) {}
+      } catch (e, stack) {
+        print("Error deleting task: $e");
+        print(stack);
+      }
     }
   }
 
@@ -275,7 +286,10 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
         await repository.updateUserAvatar(event.avatarPath);
         final newStats = await repository.getUserStats();
         emit(currentState.copyWith(userStats: newStats));
-      } catch (_) {}
+      } catch (e, stack) {
+        print("Error updating avatar: $e");
+        print(stack);
+      }
     }
   }
 
@@ -294,8 +308,9 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
         emit(currentState.copyWith(pendingTasks: tasks));
         
         await repository.reorderTasks(event.oldIndex, event.newIndex, currentState.pendingTasks);
-      } catch (_) {
-        // Revert on error if needed
+      } catch (e, stack) {
+        print("Error reordering tasks: $e");
+        print(stack);
       }
     }
   }
@@ -322,7 +337,10 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
             hasReachedMax: moreTasks.length < 20,
           ));
         }
-      } catch (_) {}
+      } catch (e, stack) {
+        print("Error loading more tasks: $e");
+        print(stack);
+      }
     }
   }
 
@@ -336,7 +354,10 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
         await repository.updateUsername(event.username);
         final newStats = await repository.getUserStats();
         emit(currentState.copyWith(userStats: newStats));
-      } catch (_) {}
+      } catch (e, stack) {
+        print("Error updating username: $e");
+        print(stack);
+      }
     }
   }
 }
