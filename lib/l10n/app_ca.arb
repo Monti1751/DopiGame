@@ -27,5 +27,35 @@
   "categoryEvent": "Esdeveniment Especial",
   "noTasks": "Tot està tranquil per aquí... Pren un te o afegeix una tasca.",
   "statsLevel": "Nivell {level}",
-  "statsProgress": "Progrés de nivell"
+  "statsProgress": "Progrés de nivell",
+  "sanctuaryTitle": "Santuari",
+  "sanctuaryEmpty": "El teu santuari està a punt però buit!",
+  "sanctuaryBuyFirstBackground": "Comprar el meu primer fons",
+  "sanctuaryNoBackground": "Compra un fons a la botiga per començar.",
+  "sanctuaryInventoryTitle": "El Teu Inventari",
+  "shopTitle": "Botiga del Santuari",
+  "shopBuy": "Comprar",
+  "shopBought": "Comprat",
+  "shopItemLevel": "Nivell {level}",
+  "@shopItemLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "shopPurchaseSuccess": "Ítem comprat!",
+  "itemForestName": "Bosc Somnolent",
+  "itemZenGardenName": "Jardí Zen",
+  "itemJapaneseGardenName": "Jardí Japonés",
+  "itemCrystalCaveName": "Cova de Cristall",
+  "itemStarryNightName": "Nit Estrellada",
+  "itemAutumnEveningName": "Tarda de Tardor",
+  "itemCushionName": "Coixí Còmode",
+  "itemTeaTableName": "Taula de Te",
+  "itemPaperLampName": "Làmpada de Paper",
+  "itemSakuraTreeName": "Arbre de Sakura",
+  "itemPillowXLName": "Coixí XL",
+  "itemStoneLampName": "Fanalet de Pedra",
+  "itemBonsaiName": "Bonsai Mil·lenari"
 }

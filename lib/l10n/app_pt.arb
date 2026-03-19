@@ -27,5 +27,35 @@
   "categoryEvent": "Evento Especial",
   "noTasks": "Tudo calmo por aqui... Tome um chá ou adicione uma tarefa.",
   "statsLevel": "Nível {level}",
-  "statsProgress": "Progresso de nível"
+  "statsProgress": "Progresso de nível",
+  "sanctuaryTitle": "Santuário",
+  "sanctuaryEmpty": "O seu santuário está pronto, mas vazio!",
+  "sanctuaryBuyFirstBackground": "Comprar o meu primeiro fundo",
+  "sanctuaryNoBackground": "Compre um fundo na loja para começar.",
+  "sanctuaryInventoryTitle": "Seu Inventário",
+  "shopTitle": "Loja do Santuário",
+  "shopBuy": "Comprar",
+  "shopBought": "Comprado",
+  "shopItemLevel": "Nível {level}",
+  "@shopItemLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "shopPurchaseSuccess": "Item comprado!",
+  "itemForestName": "Floresta Sonolenta",
+  "itemZenGardenName": "Jardim Zen",
+  "itemJapaneseGardenName": "Jardim Japonês",
+  "itemCrystalCaveName": "Caverna de Cristal",
+  "itemStarryNightName": "Noite Estrellada",
+  "itemAutumnEveningName": "Tarde de Outono",
+  "itemCushionName": "Almofada Confortável",
+  "itemTeaTableName": "Mesa de Chá",
+  "itemPaperLampName": "Lâmpada de Papel",
+  "itemSakuraTreeName": "Árvore de Sakura",
+  "itemPillowXLName": "Almofada XL",
+  "itemStoneLampName": "Lanterna de Pedra",
+  "itemBonsaiName": "Bonsai Milenar"
 }

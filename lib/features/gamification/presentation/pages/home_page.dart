@@ -11,6 +11,7 @@ import 'profile_page.dart';
 import 'package:confetti/confetti.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:dopi_game/l10n/app_localizations.dart';
+import 'package:dopi_game/features/sanctuary/presentation/pages/sanctuary_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -87,7 +88,6 @@ class _HomePageState extends State<HomePage> {
         listener: (context, state) {
           if (state is GamificationLoaded && state.showLevelUpAnimation) {
             _confettiController.play();
-            // Try to play a celebratory sound (using a public sample URL)
             _audioPlayer.play(UrlSource('https://www.myinstants.com/media/sounds/ff7-victory-fanfare.mp3'));
             
             ScaffoldMessenger.of(context).showSnackBar(
@@ -103,152 +103,11 @@ class _HomePageState extends State<HomePage> {
           if (state is GamificationLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is GamificationLoaded) {
-            // Using a simple formula for target XP visualization based on current level
             double targetXp = state.userStats.currentLevel * 100.0;
             double progress = (state.userStats.currentXp / targetXp).clamp(0.0, 1.0);
 
             return Stack(
               children: [
-                OrientationBuilder(
-                  builder: (context, orientation) {
-                    final bool isLandscape = orientation == Orientation.landscape;
-                    
-                    Widget content = Column(
-                      children: [
-                        _buildHeader(context, state.userStats.currentLevel, state.userStats.currentXp, progress, state.userStats.username, l10n, isLandscape: isLandscape),
-                        Expanded(
-                          child: state.pendingTasks.isEmpty
-                              ? Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                                    child: Container(
-                                      padding: const EdgeInsets.all(AppConstants.paddingLarge),
-                                      decoration: BoxDecoration(
-                                        color: theme.colorScheme.surface.withOpacity(0.8),
-                                        borderRadius: BorderRadius.circular(AppConstants.borderRadiusCozy),
-                                        border: Border.all(
-                                          color: theme.colorScheme.primary.withOpacity(0.2),
-                                          width: 2,
-                                        ),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.black.withOpacity(0.05),
-                                            blurRadius: 10,
-                                            offset: const Offset(0, 4),
-                                          ),
-                                        ],
-                                      ),
-                                      child: Text(
-                                        l10n.noTasks,
-                                        textAlign: TextAlign.center,
-                                        style: theme.textTheme.bodyLarge?.copyWith(
-                                          color: theme.colorScheme.onSurface,
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : ReorderableListView.builder(
-                                  scrollController: _scrollController,
-                                  onReorder: (oldIndex, newIndex) {
-                                    if (newIndex > oldIndex) newIndex -= 1;
-                                    context.read<GamificationBloc>().add(ReorderTaskEvent(oldIndex, newIndex));
-                                  },
-                                  itemCount: state.pendingTasks.length + (state.hasReachedMax ? 0 : 1),
-                                  itemBuilder: (context, index) {
-                                    if (index >= state.pendingTasks.length) {
-                                      return const Center(
-                                        key: ValueKey('loading_more'),
-                                        child: Padding(
-                                          padding: EdgeInsets.symmetric(vertical: 24.0),
-                                          child: CircularProgressIndicator(),
-                                        ),
-                                      );
-                                    }
-                                    final task = state.pendingTasks[index];
-                                    return TaskCard(
-                                      key: ValueKey(task.id),
-                                      task: task,
-                                      index: index,
-                                      onComplete: () {
-                                        context.read<GamificationBloc>().add(CompleteTaskEvent(task));
-                                      },
-                                    );
-                                  },
-                                ),
-                        ),
-                      ],
-                    );
-
-                    if (isLandscape) {
-                      return Row(
-                        children: [
-                          SizedBox(
-                            width: 300,
-                            child: _buildHeader(context, state.userStats.currentLevel, state.userStats.currentXp, progress, state.userStats.username, l10n, isLandscape: true),
-                          ),
-                          Expanded(
-                            child: state.pendingTasks.isEmpty
-                                ? Center(
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                                      child: Container(
-                                        padding: const EdgeInsets.all(AppConstants.paddingLarge),
-                                        decoration: BoxDecoration(
-                                          color: theme.colorScheme.surface.withOpacity(0.8),
-                                          borderRadius: BorderRadius.circular(AppConstants.borderRadiusCozy),
-                                          border: Border.all(
-                                            color: theme.colorScheme.primary.withOpacity(0.2),
-                                            width: 2,
-                                          ),
-                                        ),
-                                        child: Text(
-                                          l10n.noTasks,
-                                          textAlign: TextAlign.center,
-                                          style: theme.textTheme.bodyLarge?.copyWith(
-                                            fontStyle: FontStyle.italic,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                : ReorderableListView.builder(
-                                    scrollController: _scrollController,
-                                    onReorder: (oldIndex, newIndex) {
-                                      if (newIndex > oldIndex) newIndex -= 1;
-                                      context.read<GamificationBloc>().add(ReorderTaskEvent(oldIndex, newIndex));
-                                    },
-                                    itemCount: state.pendingTasks.length + (state.hasReachedMax ? 0 : 1),
-                                    itemBuilder: (context, index) {
-                                      if (index >= state.pendingTasks.length) {
-                                        return const Center(
-                                          key: ValueKey('loading_more'),
-                                          child: Padding(
-                                            padding: EdgeInsets.symmetric(vertical: 24.0),
-                                            child: CircularProgressIndicator(),
-                                          ),
-                                        );
-                                      }
-                                      final task = state.pendingTasks[index];
-                                      return TaskCard(
-                                        key: ValueKey(task.id),
-                                        task: task,
-                                        index: index,
-                                        onComplete: () {
-                                          context.read<GamificationBloc>().add(CompleteTaskEvent(task));
-                                        },
-                                      );
-                                    },
-                                  ),
-                          ),
-                        ],
-                      );
-                    }
-                    
-                    return content;
-                  },
-                ),
                 Positioned.fill(
                   child: IgnorePointer(
                     child: Opacity(
@@ -261,27 +120,74 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
+                OrientationBuilder(
+                  builder: (context, orientation) {
+                    final bool isLandscape = orientation == Orientation.landscape;
+                    
+                    Widget content = Column(
+                      children: [
+                        _buildHeader(context, state.userStats.currentLevel, state.userStats.currentXp, progress, state.userStats.username, l10n, isLandscape: isLandscape),
+                        Expanded(child: _buildTaskList(context, state, l10n)),
+                      ],
+                    );
+
+                    if (isLandscape) {
+                      return Row(
+                        children: [
+                          SizedBox(
+                            width: 300,
+                            child: _buildHeader(context, state.userStats.currentLevel, state.userStats.currentXp, progress, state.userStats.username, l10n, isLandscape: true),
+                          ),
+                          Expanded(child: _buildTaskList(context, state, l10n)),
+                        ],
+                      );
+                    }
+                    
+                    return content;
+                  },
+                ),
                 Align(
                   alignment: Alignment.topCenter,
                   child: ConfettiWidget(
                     confettiController: _confettiController,
                     blastDirectionality: BlastDirectionality.explosive,
                     shouldLoop: false,
-                    colors: const [
-                      Colors.green,
-                      Colors.blue,
-                      Colors.pink,
-                      Colors.orange,
-                      Colors.purple
-                    ],
+                    colors: const [Colors.green, Colors.blue, Colors.pink, Colors.orange, Colors.purple],
                   ),
                 ),
               ],
             );
+          } else if (state is GamificationError) {
+            return Center(
+              child: Padding(
+                padding: const EdgeInsets.all(AppConstants.paddingLarge),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.cloud_off, size: 80, color: Colors.grey),
+                    const SizedBox(height: 16),
+                    Text(
+                      state.message,
+                      textAlign: TextAlign.center,
+                      style: theme.textTheme.titleMedium,
+                    ),
+                    const SizedBox(height: 24),
+                    ElevatedButton.icon(
+                      onPressed: () => context.read<GamificationBloc>().add(LoadGamificationData()),
+                      icon: const Icon(Icons.refresh),
+                      label: const Text('Reintentar'),
+                      style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
           }
           return const SizedBox.shrink();
         },
-
       ),
       floatingActionButton: BlocBuilder<GamificationBloc, GamificationState>(
         builder: (context, state) {
@@ -292,9 +198,7 @@ class _HomePageState extends State<HomePage> {
                   context: context,
                   isScrollControlled: true,
                   backgroundColor: Colors.transparent,
-                  builder: (context) => AddTaskBottomSheet(
-                    categories: state.categories,
-                  ),
+                  builder: (context) => AddTaskBottomSheet(categories: state.categories),
                 );
               },
               backgroundColor: theme.colorScheme.primary,
@@ -305,6 +209,49 @@ class _HomePageState extends State<HomePage> {
           return const SizedBox.shrink();
         },
       ),
+    );
+  }
+
+  Widget _buildTaskList(BuildContext context, GamificationLoaded state, AppLocalizations l10n) {
+    if (state.pendingTasks.isEmpty) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+          child: Container(
+            padding: const EdgeInsets.all(AppConstants.paddingLarge),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.surface.withOpacity(0.8),
+              borderRadius: BorderRadius.circular(AppConstants.borderRadiusCozy),
+              border: Border.all(color: Theme.of(context).colorScheme.primary.withOpacity(0.2), width: 2),
+            ),
+            child: Text(
+              l10n.noTasks,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontStyle: FontStyle.italic),
+            ),
+          ),
+        ),
+      );
+    }
+    return ReorderableListView.builder(
+      scrollController: _scrollController,
+      onReorder: (oldIndex, newIndex) {
+        if (newIndex > oldIndex) newIndex -= 1;
+        context.read<GamificationBloc>().add(ReorderTaskEvent(oldIndex, newIndex));
+      },
+      itemCount: state.pendingTasks.length + (state.hasReachedMax ? 0 : 1),
+      itemBuilder: (context, index) {
+        if (index >= state.pendingTasks.length) {
+          return const Center(key: ValueKey('loading_more'), child: Padding(padding: EdgeInsets.symmetric(vertical: 24.0), child: CircularProgressIndicator()));
+        }
+        final task = state.pendingTasks[index];
+        return TaskCard(
+          key: ValueKey(task.id),
+          task: task,
+          index: index,
+          onComplete: () => context.read<GamificationBloc>().add(CompleteTaskEvent(task)),
+        );
+      },
     );
   }
 
@@ -334,19 +281,39 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 4),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Text(
-                    l10n.statsLevel(level),
-                    style: theme.textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: theme.colorScheme.primary,
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 1,
+                Text(
+                  l10n.statsLevel(level),
+                  style: theme.textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
                   ),
                 ),
+                const SizedBox(width: 12),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Colors.orange.shade800,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 4,
+                        offset: const Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: IconButton(
+                    icon: const Icon(Icons.pets, color: Colors.white, size: 24),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SanctuaryPage()),
+                      );
+                    },
+                    tooltip: 'Santuario',
+                  ),
+                ),
+                const Spacer(),
                 BlocBuilder<GamificationBloc, GamificationState>(
                   builder: (context, state) {
                     ImageProvider? avatarImage;
@@ -354,18 +321,14 @@ class _HomePageState extends State<HomePage> {
                       final stats = state.userStats;
                       if (stats.avatarPath != null && stats.avatarPath!.isNotEmpty) {
                         final file = File(stats.avatarPath!);
-                        if (file.existsSync()) {
-                          avatarImage = FileImage(file);
-                        }
+                        if (file.existsSync()) avatarImage = FileImage(file);
                       }
                     }
                     return CircleAvatar(
                       backgroundColor: theme.colorScheme.secondary,
                       radius: 24,
                       backgroundImage: avatarImage,
-                      child: avatarImage == null
-                          ? const Icon(Icons.person, color: Colors.white, size: 30)
-                          : null,
+                      child: avatarImage == null ? const Icon(Icons.person, color: Colors.white, size: 30) : null,
                     );
                   },
                 ),

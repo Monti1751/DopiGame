@@ -69,5 +69,35 @@
   "taskDeletedToast": "¡Tarea eliminada!",
   "usernameLabel": "Nombre de Usuario",
   "editName": "Editar Nombre",
-  "save": "Guardar"
+  "save": "Guardar",
+  "sanctuaryTitle": "Santuario",
+  "sanctuaryEmpty": "¡Tu santuario está listo pero vacío!",
+  "sanctuaryBuyFirstBackground": "Comprar mi primer fondo",
+  "sanctuaryNoBackground": "Compra un fondo en la tienda para empezar.",
+  "sanctuaryInventoryTitle": "Tu Inventario",
+  "shopTitle": "Tienda del Santuario",
+  "shopBuy": "Comprar",
+  "shopBought": "Comprado",
+  "shopItemLevel": "Nivel {level}",
+  "@shopItemLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "shopPurchaseSuccess": "¡Item comprado!",
+  "itemForestName": "Bosque Somnoliento",
+  "itemZenGardenName": "Jardín Zen",
+  "itemJapaneseGardenName": "Jardín Japonés",
+  "itemCrystalCaveName": "Cueva de Cristal",
+  "itemStarryNightName": "Noche Estrellada",
+  "itemAutumnEveningName": "Tarde de Otoño",
+  "itemCushionName": "Cojín Cómodo",
+  "itemTeaTableName": "Mesa de Té",
+  "itemPaperLampName": "Lámpara de Papel",
+  "itemSakuraTreeName": "Árbol de Sakura",
+  "itemPillowXLName": "Almohada XL",
+  "itemStoneLampName": "Farol de Piedra",
+  "itemBonsaiName": "Bonsai Milenario"
 }

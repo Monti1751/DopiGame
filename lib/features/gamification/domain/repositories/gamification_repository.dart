@@ -11,6 +11,7 @@ abstract class GamificationRepository {
     required int newXp,
     required int newLevel,
     required bool incrementTotalTasks,
+    int? newCurrency,
   });
   Future<List<TaskEntity>> getPendingTasks({int? limit, int? offset});
   Future<List<TaskEntity>> getCompletedTasks();

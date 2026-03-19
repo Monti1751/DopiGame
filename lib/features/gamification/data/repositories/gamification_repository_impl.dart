@@ -45,6 +45,7 @@ class GamificationRepositoryImpl implements GamificationRepository {
         totalCompletedTasks: maps.first['total_completed_tasks'] as int,
         avatarPath: maps.first['avatar_path'] as String?,
         username: maps.first['username'] as String? ?? 'Viajero',
+        currency: maps.first['currency'] as int? ?? 0,
       );
     } else {
       throw Exception('User stats not found');
@@ -71,19 +72,24 @@ class GamificationRepositoryImpl implements GamificationRepository {
     required int newXp,
     required int newLevel,
     required bool incrementTotalTasks,
+    int? newCurrency,
   }) async {
     final db = await dbHelper.database;
     
     // Increment total logically
     int extraTask = incrementTotalTasks ? 1 : 0;
     
-    await db.rawUpdate('''
-      UPDATE user_stats 
-      SET current_xp = ?, 
-          current_level = ?, 
-          total_completed_tasks = total_completed_tasks + ? 
-      WHERE id = 1
-    ''', [newXp, newLevel, extraTask]);
+    String query = 'UPDATE user_stats SET current_xp = ?, current_level = ?, total_completed_tasks = total_completed_tasks + ?';
+    List<dynamic> args = [newXp, newLevel, extraTask];
+    
+    if (newCurrency != null) {
+      query += ', currency = ?';
+      args.add(newCurrency);
+    }
+    
+    query += ' WHERE id = 1';
+    
+    await db.rawUpdate(query, args);
   }
 
   @override

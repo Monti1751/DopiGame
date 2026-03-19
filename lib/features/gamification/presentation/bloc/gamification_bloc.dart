@@ -92,9 +92,13 @@ abstract class GamificationState extends Equatable {
   List<Object?> get props => [];
 }
 
-class GamificationInitial extends GamificationState {}
+class GamificationInitial extends GamificationState {
+  const GamificationInitial();
+}
 
-class GamificationLoading extends GamificationState {}
+class GamificationLoading extends GamificationState {
+  const GamificationLoading();
+}
 
 class GamificationLoaded extends GamificationState {
   final UserStats userStats;
@@ -135,6 +139,14 @@ class GamificationLoaded extends GamificationState {
   }
 }
 
+class GamificationError extends GamificationState {
+  final String message;
+  const GamificationError(this.message);
+
+  @override
+  List<Object?> get props => [message];
+}
+
 // BLOC
 class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
   final GamificationRepository repository;
@@ -143,7 +155,7 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
   GamificationBloc({
     required this.repository,
     required this.completeTaskUseCase,
-  }) : super(GamificationInitial()) {
+  }) : super(const GamificationInitial()) {
     on<LoadGamificationData>(_onLoadGamificationData);
     on<CompleteTaskEvent>(_onCompleteTaskEvent);
     on<CompleteTaskWithLevelUpAckEvent>(_onAcknowledgeLevelUp);
@@ -174,6 +186,7 @@ class GamificationBloc extends Bloc<GamificationEvent, GamificationState> {
     } catch (e, stack) {
       print("Error loading gamification data: $e");
       print(stack);
+      emit(const GamificationError("Vaya, no hemos podido cargar tus datos. ¿Reintentamos?"));
     }
   }
 

@@ -20,5 +20,5 @@ class AppConstants {
 
   // Database
   static const String dbName = 'cozy_quest.db';
-  static const int dbVersion = 5;
+  static const int dbVersion = 6;
 }

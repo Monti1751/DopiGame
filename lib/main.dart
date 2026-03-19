@@ -15,6 +15,12 @@ import 'features/gamification/data/repositories/gamification_repository_impl.dar
 import 'features/gamification/domain/usecases/complete_task_usecase.dart';
 import 'features/gamification/presentation/bloc/gamification_bloc.dart';
 import 'features/gamification/presentation/pages/home_page.dart';
+import 'features/sanctuary/data/repositories/sanctuary_repository_impl.dart';
+import 'features/sanctuary/domain/usecases/get_unlocked_items_usecase.dart';
+import 'features/sanctuary/domain/usecases/purchase_item_usecase.dart';
+import 'features/sanctuary/domain/usecases/toggle_item_placement_usecase.dart';
+import 'features/sanctuary/presentation/bloc/sanctuary_bloc.dart';
+import 'features/sanctuary/presentation/bloc/shop_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,11 +34,26 @@ void main() async {
 
     // Initialize Database Helper
     final dbHelper = DatabaseHelper.instance;
-    await dbHelper.database; // Ensure the DB is created
+    print("Main: Awaiting database initialization...");
+    final db = await dbHelper.database; 
+    print("Main: Database initialized. Path: ${db.path}");
+    
+    // Safety check for user_stats on first launch
+    final stats = await db.query('user_stats', where: 'id = 1');
+    if (stats.isEmpty) {
+       print("Main: User stats not found! Attempting re-initialization...");
+       // This shouldn't happen if onCreate/onUpgrade are correct, but let's be safe
+       // We could trigger a force-insert here if needed
+    }
 
     // Setting up DI dependencies
     final gamificationRepository = GamificationRepositoryImpl(dbHelper);
     final completeTaskUseCase = CompleteTaskUseCase(gamificationRepository);
+
+    final sanctuaryRepository = SanctuaryRepositoryImpl(dbHelper);
+    final getUnlockedItemsUseCase = GetUnlockedItemsUseCase(sanctuaryRepository);
+    final purchaseItemUseCase = PurchaseItemUseCase(sanctuaryRepository, gamificationRepository);
+    final toggleItemPlacementUseCase = ToggleItemPlacementUseCase(sanctuaryRepository);
 
     runApp(
       MultiBlocProvider(
@@ -46,15 +67,48 @@ void main() async {
               completeTaskUseCase: completeTaskUseCase,
             ),
           ),
+          BlocProvider(
+            create: (context) => SanctuaryBloc(
+              repository: sanctuaryRepository,
+              toggleItemPlacementUseCase: toggleItemPlacementUseCase,
+            ),
+          ),
+          BlocProvider(
+            create: (context) => ShopBloc(
+              getUnlockedItemsUseCase: getUnlockedItemsUseCase,
+              purchaseItemUseCase: purchaseItemUseCase,
+              sanctuaryRepository: sanctuaryRepository,
+            ),
+          ),
         ],
         child: const CozyQuestApp(),
       ),
     );
-  } catch (e) {
+  } catch (e, stack) {
     print("FATAL STARTUP ERROR: $e");
-    // Even if initialization fails, try to show the app shell
-    // The BLoCs might fail later but it's better than a black screen
-    runApp(const MaterialApp(home: Scaffold(body: Center(child: Text("Ocurrió un error al iniciar. Por favor reinicia la app.")))));
+    print(stack);
+    runApp(MaterialApp(
+      home: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error_outline, color: Colors.red, size: 60),
+              const SizedBox(height: 16),
+              const Text("Ocurrió un error al iniciar:", style: TextStyle(fontWeight: FontWeight.bold)),
+              const SizedBox(height: 8),
+              Text(e.toString(), textAlign: TextAlign.center, style: const TextStyle(color: Colors.redAccent)),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () => main(), 
+                child: const Text("Reintentar"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ));
   }
 }
 

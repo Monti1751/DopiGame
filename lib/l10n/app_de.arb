@@ -27,5 +27,35 @@
   "categoryEvent": "Besonderes Ereignis",
   "noTasks": "Hier ist es ruhig... Trink einen Tee oder füge eine Aufgabe hinzu.",
   "statsLevel": "Level {level}",
-  "statsProgress": "Level-Fortschritt"
+  "statsProgress": "Level-Fortschritt",
+  "sanctuaryTitle": "Sanktuarium",
+  "sanctuaryEmpty": "Dein Sanktuarium ist bereit, aber leer!",
+  "sanctuaryBuyFirstBackground": "Meinen ersten Hintergrund kaufen",
+  "sanctuaryNoBackground": "Kaufe einen Hintergrund im Laden, um zu beginnen.",
+  "sanctuaryInventoryTitle": "Dein Inventar",
+  "shopTitle": "Sanktuariums-Laden",
+  "shopBuy": "Kaufen",
+  "shopBought": "Gekauft",
+  "shopItemLevel": "Stufe {level}",
+  "@shopItemLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "shopPurchaseSuccess": "Artikel gekauft!",
+  "itemForestName": "Schlummerwald",
+  "itemZenGardenName": "Zen-Garten",
+  "itemJapaneseGardenName": "Japanischer Garten",
+  "itemCrystalCaveName": "Kristallhöhle",
+  "itemStarryNightName": "Sternennacht",
+  "itemAutumnEveningName": "Herbstabend",
+  "itemCushionName": "Gemütliches Kissen",
+  "itemTeaTableName": "Teetisch",
+  "itemPaperLampName": "Papierlampe",
+  "itemSakuraTreeName": "Sakura-Baum",
+  "itemPillowXLName": "XL-Kissen",
+  "itemStoneLampName": "Steinlaterne",
+  "itemBonsaiName": "Uralter Bonsai"
 }

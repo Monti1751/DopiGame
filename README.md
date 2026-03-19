@@ -10,14 +10,11 @@
 
 ---
 
-## ✨ Features
-
-*   **Gamified Productivity**: Earn XP and level up by completing your daily tasks.
-*   **Whimsical Aesthetics**: Relaxing "Capybara Tea Party" backgrounds and soft, cozy UI design.
-*   **Personalized Profile**: Customize your username and avatar to make the adventure yours.
-*   **Smart Notifications**: Never miss a deadline with automated, timezone-aware reminders.
-*   **Immersive Mode**: Focus entirely on your tasks with a full-screen, distraction-free interface.
-*   **Multi-language Support**: Fully localized in English and Spanish.
+*   **Sanctuary & Shop**: Unlock furniture and backgrounds as you level up. Decorate your own cozy space!
+*   **Cozy Rendering**: Custom vector-style furniture for a unique, lightweight aesthetic.
+*   **Capybara Interaction**: Tap the capybara for heart animations and happy vibes.
+*   **Multi-language Support**: Fully localized in 12 languages (EN, ES, CA, PT, FR, DE, IT, JA, ZH, etc.).
+*   **Error Resilience**: Robust startup and database migration system with automatic recovery.
 *   **Clean Architecture**: Built with SOLID principles and Clean Architecture for a robust and maintainable codebase.
 
 ---

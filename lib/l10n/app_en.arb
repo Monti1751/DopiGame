@@ -69,5 +69,35 @@
   "taskDeletedToast": "Task deleted!",
   "usernameLabel": "Username",
   "editName": "Edit Name",
-  "save": "Save"
+  "save": "Save",
+  "sanctuaryTitle": "Sanctuary",
+  "sanctuaryEmpty": "Your sanctuary is ready but empty!",
+  "sanctuaryBuyFirstBackground": "Buy my first background",
+  "sanctuaryNoBackground": "Buy a background in the shop to start.",
+  "sanctuaryInventoryTitle": "Your Inventory",
+  "shopTitle": "Sanctuary Shop",
+  "shopBuy": "Buy",
+  "shopBought": "Bought",
+  "shopItemLevel": "Level {level}",
+  "@shopItemLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "shopPurchaseSuccess": "Item purchased!",
+  "itemForestName": "Sleepy Forest",
+  "itemZenGardenName": "Zen Garden",
+  "itemJapaneseGardenName": "Japanese Garden",
+  "itemCrystalCaveName": "Crystal Cave",
+  "itemStarryNightName": "Starry Night",
+  "itemAutumnEveningName": "Autumn Evening",
+  "itemCushionName": "Cozy Cushion",
+  "itemTeaTableName": "Tea Table",
+  "itemPaperLampName": "Paper Lamp",
+  "itemSakuraTreeName": "Sakura Tree",
+  "itemPillowXLName": "XL Pillow",
+  "itemStoneLampName": "Stone Lantern",
+  "itemBonsaiName": "Ancient Bonsai"
 }

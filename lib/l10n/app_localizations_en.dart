@@ -175,4 +175,75 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get save => 'Save';
+
+  @override
+  String get sanctuaryTitle => 'Sanctuary';
+
+  @override
+  String get sanctuaryEmpty => 'Your sanctuary is ready but empty!';
+
+  @override
+  String get sanctuaryBuyFirstBackground => 'Buy my first background';
+
+  @override
+  String get sanctuaryNoBackground => 'Buy a background in the shop to start.';
+
+  @override
+  String get sanctuaryInventoryTitle => 'Your Inventory';
+
+  @override
+  String get shopTitle => 'Sanctuary Shop';
+
+  @override
+  String get shopBuy => 'Buy';
+
+  @override
+  String get shopBought => 'Bought';
+
+  @override
+  String shopItemLevel(int level) {
+    return 'Level $level';
+  }
+
+  @override
+  String get shopPurchaseSuccess => 'Item purchased!';
+
+  @override
+  String get itemForestName => 'Sleepy Forest';
+
+  @override
+  String get itemZenGardenName => 'Zen Garden';
+
+  @override
+  String get itemJapaneseGardenName => 'Japanese Garden';
+
+  @override
+  String get itemCrystalCaveName => 'Crystal Cave';
+
+  @override
+  String get itemStarryNightName => 'Starry Night';
+
+  @override
+  String get itemAutumnEveningName => 'Autumn Evening';
+
+  @override
+  String get itemCushionName => 'Cozy Cushion';
+
+  @override
+  String get itemTeaTableName => 'Tea Table';
+
+  @override
+  String get itemPaperLampName => 'Paper Lamp';
+
+  @override
+  String get itemSakuraTreeName => 'Sakura Tree';
+
+  @override
+  String get itemPillowXLName => 'XL Pillow';
+
+  @override
+  String get itemStoneLampName => 'Stone Lantern';
+
+  @override
+  String get itemBonsaiName => 'Ancient Bonsai';
 }

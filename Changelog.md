@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0] - 2026-03-19
+
+### Added
+- **Sanctuary (Santuario)**: A personal space for your capybara companion.
+- **Furniture & Shop**: Purchase cozy items (pillows, tables, bonsai) and unique backgrounds using earned currency.
+- **Interactive Decor**: Drag and drop furniture to customize your sanctuary. Positions are saved automatically.
+- **Cozy Furniture Renderer**: Stylized, vector-drawn furniture items for a consistent artistic look.
+- **Heart Animations**: Tap the capybara to trigger delightful heart effects.
+- **Global Localization**: Propagated sanctuary and shop support across all 12 languages.
+- **Enhanced Filters**: More dramatic atmospheric filters for sanctuary backgrounds.
+
+### Fixed
+- **Startup Race Condition**: Resolved a fatal error where the app attempted to read the database before tables were fully created.
+- **Database Migration v8**: Implemented robust, idempotent migrations for new catalog items.
+- **Inventory Sync**: Optimized BLoC logic for instantaneous inventory and placement updates.
+- **Build Errors**: Fixed several 'const' constructor and undefined variable errors in release builds.
+
 ## [1.0.0] - 2026-03-16
 
 ### Added

@@ -6,6 +6,7 @@ class UserStats extends Equatable {
   final int totalCompletedTasks;
   final String? avatarPath;
   final String username;
+  final int currency;
 
   const UserStats({
     required this.currentXp,
@@ -13,8 +14,9 @@ class UserStats extends Equatable {
     required this.totalCompletedTasks,
     this.avatarPath,
     required this.username,
+    required this.currency,
   });
 
   @override
-  List<Object?> get props => [currentXp, currentLevel, totalCompletedTasks, avatarPath, username];
+  List<Object?> get props => [currentXp, currentLevel, totalCompletedTasks, avatarPath, username, currency];
 }

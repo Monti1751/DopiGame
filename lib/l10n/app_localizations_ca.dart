@@ -175,4 +175,76 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get save => 'Guardar';
+
+  @override
+  String get sanctuaryTitle => 'Santuari';
+
+  @override
+  String get sanctuaryEmpty => 'El teu santuari està a punt però buit!';
+
+  @override
+  String get sanctuaryBuyFirstBackground => 'Comprar el meu primer fons';
+
+  @override
+  String get sanctuaryNoBackground =>
+      'Compra un fons a la botiga per començar.';
+
+  @override
+  String get sanctuaryInventoryTitle => 'El Teu Inventari';
+
+  @override
+  String get shopTitle => 'Botiga del Santuari';
+
+  @override
+  String get shopBuy => 'Comprar';
+
+  @override
+  String get shopBought => 'Comprat';
+
+  @override
+  String shopItemLevel(int level) {
+    return 'Nivell $level';
+  }
+
+  @override
+  String get shopPurchaseSuccess => 'Ítem comprat!';
+
+  @override
+  String get itemForestName => 'Bosc Somnolent';
+
+  @override
+  String get itemZenGardenName => 'Jardí Zen';
+
+  @override
+  String get itemJapaneseGardenName => 'Jardí Japonés';
+
+  @override
+  String get itemCrystalCaveName => 'Cova de Cristall';
+
+  @override
+  String get itemStarryNightName => 'Nit Estrellada';
+
+  @override
+  String get itemAutumnEveningName => 'Tarda de Tardor';
+
+  @override
+  String get itemCushionName => 'Coixí Còmode';
+
+  @override
+  String get itemTeaTableName => 'Taula de Te';
+
+  @override
+  String get itemPaperLampName => 'Làmpada de Paper';
+
+  @override
+  String get itemSakuraTreeName => 'Arbre de Sakura';
+
+  @override
+  String get itemPillowXLName => 'Coixí XL';
+
+  @override
+  String get itemStoneLampName => 'Fanalet de Pedra';
+
+  @override
+  String get itemBonsaiName => 'Bonsai Mil·lenari';
 }

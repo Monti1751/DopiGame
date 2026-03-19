@@ -435,6 +435,144 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Guardar'**
   String get save;
+
+  /// No description provided for @sanctuaryTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Santuario'**
+  String get sanctuaryTitle;
+
+  /// No description provided for @sanctuaryEmpty.
+  ///
+  /// In es, this message translates to:
+  /// **'¡Tu santuario está listo pero vacío!'**
+  String get sanctuaryEmpty;
+
+  /// No description provided for @sanctuaryBuyFirstBackground.
+  ///
+  /// In es, this message translates to:
+  /// **'Comprar mi primer fondo'**
+  String get sanctuaryBuyFirstBackground;
+
+  /// No description provided for @sanctuaryNoBackground.
+  ///
+  /// In es, this message translates to:
+  /// **'Compra un fondo en la tienda para empezar.'**
+  String get sanctuaryNoBackground;
+
+  /// No description provided for @sanctuaryInventoryTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Tu Inventario'**
+  String get sanctuaryInventoryTitle;
+
+  /// No description provided for @shopTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Tienda del Santuario'**
+  String get shopTitle;
+
+  /// No description provided for @shopBuy.
+  ///
+  /// In es, this message translates to:
+  /// **'Comprar'**
+  String get shopBuy;
+
+  /// No description provided for @shopBought.
+  ///
+  /// In es, this message translates to:
+  /// **'Comprado'**
+  String get shopBought;
+
+  /// No description provided for @shopItemLevel.
+  ///
+  /// In es, this message translates to:
+  /// **'Nivel {level}'**
+  String shopItemLevel(int level);
+
+  /// No description provided for @shopPurchaseSuccess.
+  ///
+  /// In es, this message translates to:
+  /// **'¡Item comprado!'**
+  String get shopPurchaseSuccess;
+
+  /// No description provided for @itemForestName.
+  ///
+  /// In es, this message translates to:
+  /// **'Bosque Somnoliento'**
+  String get itemForestName;
+
+  /// No description provided for @itemZenGardenName.
+  ///
+  /// In es, this message translates to:
+  /// **'Jardín Zen'**
+  String get itemZenGardenName;
+
+  /// No description provided for @itemJapaneseGardenName.
+  ///
+  /// In es, this message translates to:
+  /// **'Jardín Japonés'**
+  String get itemJapaneseGardenName;
+
+  /// No description provided for @itemCrystalCaveName.
+  ///
+  /// In es, this message translates to:
+  /// **'Cueva de Cristal'**
+  String get itemCrystalCaveName;
+
+  /// No description provided for @itemStarryNightName.
+  ///
+  /// In es, this message translates to:
+  /// **'Noche Estrellada'**
+  String get itemStarryNightName;
+
+  /// No description provided for @itemAutumnEveningName.
+  ///
+  /// In es, this message translates to:
+  /// **'Tarde de Otoño'**
+  String get itemAutumnEveningName;
+
+  /// No description provided for @itemCushionName.
+  ///
+  /// In es, this message translates to:
+  /// **'Cojín Cómodo'**
+  String get itemCushionName;
+
+  /// No description provided for @itemTeaTableName.
+  ///
+  /// In es, this message translates to:
+  /// **'Mesa de Té'**
+  String get itemTeaTableName;
+
+  /// No description provided for @itemPaperLampName.
+  ///
+  /// In es, this message translates to:
+  /// **'Lámpara de Papel'**
+  String get itemPaperLampName;
+
+  /// No description provided for @itemSakuraTreeName.
+  ///
+  /// In es, this message translates to:
+  /// **'Árbol de Sakura'**
+  String get itemSakuraTreeName;
+
+  /// No description provided for @itemPillowXLName.
+  ///
+  /// In es, this message translates to:
+  /// **'Almohada XL'**
+  String get itemPillowXLName;
+
+  /// No description provided for @itemStoneLampName.
+  ///
+  /// In es, this message translates to:
+  /// **'Farol de Piedra'**
+  String get itemStoneLampName;
+
+  /// No description provided for @itemBonsaiName.
+  ///
+  /// In es, this message translates to:
+  /// **'Bonsai Milenario'**
+  String get itemBonsaiName;
 }
 
 class _AppLocalizationsDelegate

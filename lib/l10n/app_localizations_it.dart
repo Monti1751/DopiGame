@@ -175,4 +175,76 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get save => 'Guardar';
+
+  @override
+  String get sanctuaryTitle => 'Santuario';
+
+  @override
+  String get sanctuaryEmpty => '¡Tu santuario está listo pero vacío!';
+
+  @override
+  String get sanctuaryBuyFirstBackground => 'Comprar mi primer fondo';
+
+  @override
+  String get sanctuaryNoBackground =>
+      'Compra un fondo en la tienda para empezar.';
+
+  @override
+  String get sanctuaryInventoryTitle => 'Tu Inventario';
+
+  @override
+  String get shopTitle => 'Tienda del Santuario';
+
+  @override
+  String get shopBuy => 'Comprar';
+
+  @override
+  String get shopBought => 'Comprado';
+
+  @override
+  String shopItemLevel(int level) {
+    return 'Nivel $level';
+  }
+
+  @override
+  String get shopPurchaseSuccess => '¡Item comprado!';
+
+  @override
+  String get itemForestName => 'Bosque Somnoliento';
+
+  @override
+  String get itemZenGardenName => 'Jardín Zen';
+
+  @override
+  String get itemJapaneseGardenName => 'Jardín Japonés';
+
+  @override
+  String get itemCrystalCaveName => 'Cueva de Cristal';
+
+  @override
+  String get itemStarryNightName => 'Noche Estrellada';
+
+  @override
+  String get itemAutumnEveningName => 'Tarde de Otoño';
+
+  @override
+  String get itemCushionName => 'Cojín Cómodo';
+
+  @override
+  String get itemTeaTableName => 'Mesa de Té';
+
+  @override
+  String get itemPaperLampName => 'Lámpara de Papel';
+
+  @override
+  String get itemSakuraTreeName => 'Árbol de Sakura';
+
+  @override
+  String get itemPillowXLName => 'Almohada XL';
+
+  @override
+  String get itemStoneLampName => 'Farol de Piedra';
+
+  @override
+  String get itemBonsaiName => 'Bonsai Milenario';
 }

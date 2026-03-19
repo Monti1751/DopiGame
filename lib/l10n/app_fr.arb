@@ -27,5 +27,35 @@
   "categoryEvent": "Événement spécial",
   "noTasks": "C'est calme par ici... Prenez un thé ou ajoutez une tâche.",
   "statsLevel": "Niveau {level}",
-  "statsProgress": "Progression du niveau"
+  "statsProgress": "Progression du niveau",
+  "sanctuaryTitle": "Sanctuaire",
+  "sanctuaryEmpty": "Votre sanctuaire est prêt mais vide !",
+  "sanctuaryBuyFirstBackground": "Acheter mon premier fond",
+  "sanctuaryNoBackground": "Achetez un fond dans la boutique pour commencer.",
+  "sanctuaryInventoryTitle": "Votre Inventaire",
+  "shopTitle": "Boutique du Sanctuaire",
+  "shopBuy": "Acheter",
+  "shopBought": "Acheté",
+  "shopItemLevel": "Niveau {level}",
+  "@shopItemLevel": {
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "shopPurchaseSuccess": "Article acheté !",
+  "itemForestName": "Forêt Endormie",
+  "itemZenGardenName": "Jardin Zen",
+  "itemJapaneseGardenName": "Jardins Japonais",
+  "itemCrystalCaveName": "Grotte de Cristal",
+  "itemStarryNightName": "Nuit Étoilée",
+  "itemAutumnEveningName": "Soirée d'Automne",
+  "itemCushionName": "Coussin Confortable",
+  "itemTeaTableName": "Table de Thé",
+  "itemPaperLampName": "Lampe en Papier",
+  "itemSakuraTreeName": "Cerisier Sakura",
+  "itemPillowXLName": "Oreiller XL",
+  "itemStoneLampName": "Lanterne en Pierre",
+  "itemBonsaiName": "Bonsaï Millénaire"
 }

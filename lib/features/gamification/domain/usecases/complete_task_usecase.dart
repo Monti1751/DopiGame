@@ -26,11 +26,16 @@ class CompleteTaskUseCase {
       newLevel++;
     }
 
-    // 5. Persistir cambios
+    // 5. Reward currency (e.g., 50% of XP earned)
+    final int currencyEarned = (earnedXp * 0.5).ceil();
+    final int newCurrency = stats.currency + currencyEarned;
+
+    // 6. Persistir cambios
     await repository.updateUserStats(
       newXp: newXp,
       newLevel: newLevel,
       incrementTotalTasks: true,
+      newCurrency: newCurrency,
     );
   }
 }
